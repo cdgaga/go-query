@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 搜索</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="{{.staticUri}}/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="{{.staticUri}}/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+    <link href="{{.staticUri}}/css/animate.min.css" rel="stylesheet">
+    <link href="{{.staticUri}}/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="{{.staticUri}}/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="{{.staticUri}}/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+
+
+                    <div class="search-form">
+                        <form action="/db/query" method="post">
+                            <div class="input-group">
+                                <input type="text" placeholder="输入sql" value="{{.sql}}" name="sql" class="form-control input-lg">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-lg btn-primary" type="submit">
+                                        搜索
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    {{if .errMsg}}
+                    <div class="alert alert-danger">
+                       {{.errMsg}}
+                    </div>
+                    {{else}}
+                    <small>搜索用时  (0.23 ms)</small>
+                    <div class="ibox-content">
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                            <tr>
+                                {{range $index, $v1 := .keys}}
+                                    <th id="{{$index}}">{{$v1}}</th>
+                                {{end}}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index1, $row := .list}}
+                                <tr class="gradeX">
+                                    {{range $index2, $v2 := $row}}
+                                    <td id="{{$index1}}-{{$index2}}">{{$v2}}</td>
+                                    {{end}}
+                                </tr>
+                            {{end}}
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                {{range $index, $v1 := .keys}}
+                                <th id="{{$index}}">{{$v1}}</th>
+                                {{end}}
+                            </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    {{end}}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{.staticUri}}/js/jquery.min.js?v=2.1.4"></script>
+<script src="{{.staticUri}}/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="{{.staticUri}}/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="{{.staticUri}}/js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="{{.staticUri}}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script src="{{.staticUri}}/js/content.min.js?v=1.0.0"></script>
+<script>
+    $(document).ready(function() {
+        $(".dataTables-example").dataTable();
+    });
+
+</script>
+</body>
+</html>
