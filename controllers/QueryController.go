@@ -15,8 +15,8 @@ func (c *AdminController) DbQuery() {
 func (c *AdminController) DbQueryResult() {
 
     sql := c.GetString("sql")
-    errMsg := ""
 
+    /*
     db, err := sql.Open("mysql", "root:pass@tcp(192.168.10.10:3306)/query_manage_tools?charset=utf8")
     if err != nil {
         fmt.Println("Open database error: %s\n", err)
@@ -35,8 +35,7 @@ func (c *AdminController) DbQueryResult() {
     defer rows.Close()
 
     for rows.Next() {
-    }
-    /*
+    }*/
     orm.RegisterDataBase("default", "mysql", "root:pass@tcp(192.168.10.10:3306)/query_manage_tools?charset=utf8", 2)
     orm.Debug = true
     o := orm.NewOrm()
@@ -62,9 +61,9 @@ func (c *AdminController) DbQueryResult() {
     } else {
         fmt.Println(err)
         errMsg = err.Error()
-    }*/
+    }
 
-    c.Data["sql"]    = sql
+    // c.Data["sql"]    = sql
     c.Data["errMsg"] = errMsg
 
     

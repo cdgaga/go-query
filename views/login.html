@@ -1,48 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>欢迎使用 QM Tool</title>
-    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
-
-    <link rel="shortcut icon" href="favicon.ico"> <link href="/static/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
-    <link href="/static/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-
-    <link href="/static/css/animate.min.css" rel="stylesheet">
-    <link href="/static/css/style.min862f.css?v=4.1.0" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html" />
-    <![endif]-->
-    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
-</head>
-
-<body class="gray-bg">
-
-    <div class="middle-box text-center loginscreen  animated fadeInDown">
-        <div>
-            <div>
-                <h1 class="logo-name">Q+</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <title>Go Query Login</title>
+        <script src="{{.staticUri}}/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="{{.staticUri}}/js/global.js" type="text/javascript" charset="utf-8"></script>
+        <script src="{{.staticUri}}/js/modal.js" type="text/javascript" charset="utf-8"></script>      
+        <link rel="stylesheet" href="{{.staticUri}}/css/style.css" type="text/css" media="screen" charset="utf-8" />
+    </head>
+    <body>
+        <div id="wrapper_login">
+            <div id="menu">
+                <div id="left"></div>
+                <div id="right"></div>
+                <h2>Go Query Login</h2>
+                <div class="clear"></div>       
             </div>
-            <h3>欢迎使用 QM Tool</h3>
-
-            <form class="m-t" role="form" action="#">
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="用户名" required="">
+            <div id="desc">
+                <div class="body">
+                    <div class="col w10 last bottomlast">
+                        <form action="index.html">
+                            <p>
+                                <label for="username">Username:</label>
+                                <input type="text" name="username" id="username" value="" size="30" class="text" />
+                                <br />
+                            </p>
+                            <p>
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" id="password" value="" size="30" class="text" />
+                                <br />
+                            </p>
+                            <p class="last">
+                                <input type="submit" value="Login" class="novisible" />
+                                <a href="" class="button form_submit"><small class="icon play"></small><span>Login</span></a>
+                                <br />
+                            </p>
+                            <div class="clear"></div>
+                        </form>
+                    </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="">
+                <div class="clear"></div>
+                <div id="body_footer">
+                    <div id="bottom_left"><div id="bottom_right"></div></div>
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
-                </p>
-
-            </form>
+            </div>      
         </div>
-    </div>
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-</body>
-
+    </body>
 </html>

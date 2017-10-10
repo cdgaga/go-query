@@ -13,7 +13,8 @@ func (c *AdminController) Prepare() {
     // 加载配置文件.
     c.Data["staticUri"] = beego.AppConfig.String("staticUri")
 
-    // todo 坚持用户是否登陆.
+    // todo 检查用户是否登陆.
+    
 }
 
 func (c *AdminController) Home() {
