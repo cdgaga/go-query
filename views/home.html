@@ -1,232 +1,104 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <title>Go Query</title>
-        <script src="{{.staticUri}}/js/jquery.js" type="text/javascript" charset="utf-8"></script>
-        <script src="{{.staticUri}}/js/global.js" type="text/javascript" charset="utf-8"></script>
-        <script src="{{.staticUri}}/js/modal.js" type="text/javascript" charset="utf-8"></script>
-        <link rel="stylesheet" href="{{.staticUri}}/css/style.css" type="text/css" media="screen" charset="utf-8" />
-        <!--[if IE 6]>
-            <link rel="stylesheet" href="{{.staticUri}}/css/ie6.css" type="text/css" media="screen" charset="utf-8" />
-        <![endif]-->        
-    </head>
-    <body>
-        {{template "header.html" .}}
-        <div id="wrapper">
-            <div id="minwidth">
-                <div id="holder">
-                    {{template "menu.html" .}}
-                    <div id="submenu">
-                        <div class="modules_left">
-                            <div class="module buttons">
-                                <a href="" class="dropdown_button"><small class="icon clipboard"></small><span>My Favorite</span></a>
-                                <div class="dropdown help_index">
-                                    <div class="arrow"></div>
-                                    <div class="content">
-                                        <div class="col w5">
-                                        <a href="#html">
-                                            查询订单数量
-                                            <span>select from `order` where create_time<12313</span>
-                                        </a>
-                                        <hr/>
-                                       <a href="#html">
-                                            查询订单数量1
-                                            <span>select from `order` where create_time<12313</span>
-                                        </a>
-                                        <hr/>
-                                        <a href="#html">
-                                            查询订单数量2
-                                            <span>select from `order` where create_time<12313</span>
-                                        </a>
-                                        <hr/>
-                                        <a href="#html">
-                                            查询订单数量3
-                                            <span>select from `order` where create_time<12313</span>
-                                        </a>
-                                        
-                                        </div>
-                                        <div class="clear"></div>
-                                        <a class="button red right close"><small class="icon cross"></small><span>Close</span></a>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
+{{template "header.html" .}}
+
+<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Dashboard</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-comments fa-5x"></i>
                             </div>
-                        </div>
-                        <div class="title">
-                            Query Manage
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">26</div>
+                                <div>New Comments!</div>
+                            </div>
                         </div>
                     </div>
-                    <div id="desc">
-                        <div class="body">
-                            <div class="col w10 last">
-                            <div class="content">
-                            <div  class="form">
-                                <form action="test.php">
-                                        <p>
-                                            <label for="select">DB Select:</label>
-                                            <select name="select" id="select">
-                                                <option value="option1">option1</option>
-                                                <option value="option2">option2</option>
-                                                <option value="option3">option3</option>
-                                                <option value="option4">option4</option>
-                                                <option value="option5">option5</option>
-                                            </select>
-                                        </p>
-                                        <p>
-                                            <label for="select">Entry Sql:</label>
-                                            <textarea rows="4" cols="150"></textarea>
-                                        </p>
-                                        <p>
-                                            <a href="http://google.com" class="button"><span> &nbsp;&nbsp;Go Search &nbsp;&nbsp;</span></a>
-                                            <br>
-                                           
-                                        </p>
-                                    </form>
-                            </div>
-                            <div class="notice">
-                                        <div class="tl"></div><div class="tr"></div>
-                                        <div class="desc">
-                                            <p>Query Result is Empty</p>
-                                        </div>
-                                        <div class="bl"></div><div class="br"></div>
-                             </div>
-
-                            <div class="error">
-                                        <div class="tl"></div><div class="tr"></div>
-                                        <div class="desc">
-                                            <p>Table 'sportlotte_playing.ticket_odds_detail_v1' doesn't exist</p>
-                                        </div>
-                                        <div class="bl"></div><div class="br"></div>
-                                    </div>
-
-                            <div id="table" class="help">
-                            <h1>Query Result:</h1>
-                            <div class="col w10 last">
-                                <div class="content">
-                                    <table>
-                                        <tbody><tr>
-                                            <th class="checkbox"><input type="checkbox" name="checkbox"></th>
-                                            <th>Th #1</th>
-                                            <th>Th #2</th>
-                                            <th>Th #3</th>
-                                            <th>Th #4</th>
-                                            <th>Th #5</th>
-                                            <th>Th #6</th>
-                                        </tr>
-                                        <tr id="id_1">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_2">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_3">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_4">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_5">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_6">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_7">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_8">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_9">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                        <tr id="id_10">
-                                            <td class="checkbox"><input type="checkbox" name="checkbox"></td>
-                                            <td>Lorem</td>
-                                            <td>Ipsum</td>
-                                            <td>Dolor</td>
-                                            <td>Sit</td>
-                                            <td>Amez</td>
-                                            <td>Consectetur</td>
-                                        </tr>
-                                    </tbody></table>
-                                </div>                          
-                            </div>
-                            <div class="clear"></div>
-                            </div>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="clear"></div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clear"></div>
-                        <div id="body_footer">
-                            <div id="bottom_left"><div id="bottom_right"></div></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tasks fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">12</div>
+                                <div>New Tasks!</div>
+                            </div>
                         </div>
                     </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">124</div>
+                                <div>New Orders!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-support fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">13</div>
+                                <div>Support Tickets!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-        <div id="footer">
-            <p class="last">Copyright 2009 - Gray Admin Template - Created by <a href="">Passatgt</a></p>
-        </div>      
-    </body>
-</html>
+        <!-- /.row -->
+    </div>
+
+{{template "footer.html" .}}

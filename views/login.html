@@ -1,53 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <title>Go Query Login</title>
-        <script src="{{.staticUri}}/js/jquery.js" type="text/javascript" charset="utf-8"></script>
-        <script src="{{.staticUri}}/js/global.js" type="text/javascript" charset="utf-8"></script>
-        <script src="{{.staticUri}}/js/modal.js" type="text/javascript" charset="utf-8"></script>      
-        <link rel="stylesheet" href="{{.staticUri}}/css/style.css" type="text/css" media="screen" charset="utf-8" />
-    </head>
-    <body>
-        <div id="wrapper_login">
-            <div id="menu">
-                <div id="left"></div>
-                <div id="right"></div>
-                <h2>Go Query Login</h2>
-                <div class="clear"></div>       
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{{i18n .Lang "login.name"}}</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{.staticUri}}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{.staticUri}}/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{{.staticUri}}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+    <script src="{{.staticUri}}/vendor/jquery/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{i18n .Lang "login.name"}}</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" id="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="{{i18n .Lang "login.user-name"}}" name="email" type="email" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="{{i18n .Lang "login.user-pwd"}}" name="password" type="password" value="">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">{{i18n .Lang "login.remember-me"}}
+                                </label>
+                            </div>
+                            <a href="#" id="submitBtn" class="btn btn-lg btn-success btn-block">{{i18n .Lang "login.submit-btn"}}</a>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div id="desc">
-                <div class="body">
-                    <div class="col w10 last bottomlast">
-                        <form action="index.html">
-                            <p>
-                                <label for="username">Username:</label>
-                                <input type="text" name="username" id="username" value="" size="30" class="text" />
-                                <br />
-                            </p>
-                            <p>
-                                <label for="password">Password:</label>
-                                <input type="password" name="password" id="password" value="" size="30" class="text" />
-                                <br />
-                            </p>
-                            <p class="last">
-                                <input type="submit" value="Login" class="novisible" />
-                                <a href="" class="button form_submit"><small class="icon play"></small><span>Login</span></a>
-                                <br />
-                            </p>
-                            <div class="clear"></div>
-                        </form>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-                <div id="body_footer">
-                    <div id="bottom_left"><div id="bottom_right"></div></div>
-                </div>
-            </div>      
         </div>
-    </body>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#submitBtn").click(function(){
+            $.post("/signIn", $("#form").serialize(), function(data){
+                if (data.code == "200") {
+                    document.location.href = data.url
+                } else {
+                    alert(data.message)
+                }
+            }, 'json');
+        });
+    });
+</script>
+
+</body>
+
 </html>
