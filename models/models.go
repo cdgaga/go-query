@@ -1,6 +1,5 @@
 package models
 
-import "github.com/jinzhu/gorm"
 
 type User struct {
 	UserId    int
@@ -18,13 +17,18 @@ func (User) TableName() string {
 }
 
 type DbConfig struct {
-	gorm.Model
 	Id int
 	DbName string
 	DbType string
 	DbHost string
 	DbPassword string
 	DbPort  string
-	SubDataBases string
+	Charset  string
+	SubDb string
+	Tables string
 	CreateTime string
+}
+
+func (DbConfig) TableName() string {
+	return "db_config"
 }

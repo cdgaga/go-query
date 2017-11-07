@@ -18,8 +18,8 @@ func init() {
 	beego.Router("/home", &controllers.AdminController{}, "get:Home")
 	beego.Router("/profile", &controllers.AdminController{}, "get:Profile")
 
-	beego.Router("/dbconfig/list", &controllers.AdminController{}, "get:DbConfigList")
-	beego.Router("/dbconfig/edit", &controllers.AdminController{}, "get:DbConfigEdit")
+	beego.Router("/db/list", &controllers.AdminController{}, "get:DbList")
+	beego.Router("/db/edit", &controllers.AdminController{}, "get:DbEdit")
 
 	// user
 	beego.Router("/user/list", &controllers.AdminController{}, "get:UserList")
