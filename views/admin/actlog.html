@@ -1,0 +1,94 @@
+{{template "header.html" .}}
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h1 class="page-header">管理员操作日志</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="#">系统管理</a> <span class="divider">/</span>
+                            </li>
+
+                            <li class="active">
+                                管理员操作日志
+                            </li>
+                        </ul>
+                        <form class="form-search">
+                            管理员: <input class="input-medium " value="{{.user_name}}" type="text" name="user_name" /> <button type="submit" class="btn btn-default">查找</button>
+                        </form>
+                        <br>
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>#id</th>
+                                <th>管理员</th>
+                                <th>分类</th>
+                                <th>操作标题</th>
+                                <th>操作内容</th>
+                                <th>创建时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range .actlogs}}
+                            <tr>
+                                <td>{{ .Id}}</td>
+                                <td>{{ .UserId}}</td>
+                                <td>{{ .ActType}}</td>
+                                <td>{{ .ActTitle}}</td>
+                                <td>{{ .ActContent}}</td>
+                                <td>{{ .ActTime}}</td>
+                            </tr>
+                            {{end}}
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                        {{template "pager.html" .}}
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /#page-wrapper -->
+<script src="{{.staticUri}}/vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{{.staticUri}}/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="{{.staticUri}}/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="{{.staticUri}}/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="{{.staticUri}}/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="{{.staticUri}}/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{{.staticUri}}/dist/js/sb-admin-2.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable( {
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/user/getUserData.php"
+        } );
+    });
+</script>
+{{template "footer.html" .}}

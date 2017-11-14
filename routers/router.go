@@ -1,12 +1,11 @@
 package routers
 
 import (
-	"github.com/cdgaga/go-query/controllers"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/beego/i18n"
-	"fmt"
+	"github.com/cdgaga/go-query/controllers"
 )
-
 
 func init() {
 
@@ -17,6 +16,7 @@ func init() {
 	beego.Router("/signOut", &controllers.LoginController{}, "get:SignOut")
 	beego.Router("/home", &controllers.AdminController{}, "get:Home")
 	beego.Router("/profile", &controllers.AdminController{}, "get:Profile")
+	beego.Router("/actlog", &controllers.AdminController{}, "get:Actlog")
 
 	beego.Router("/db/list", &controllers.AdminController{}, "get:DbList")
 	beego.Router("/db/edit", &controllers.AdminController{}, "get:DbEdit")
@@ -26,10 +26,9 @@ func init() {
 
 	// loading language
 	lang := "zh-CN"
-	if err := i18n.SetMessage(lang, "conf/" + "locale_" + lang + ".ini"); err != nil {
+	if err := i18n.SetMessage(lang, "conf/"+"locale_"+lang+".ini"); err != nil {
 		fmt.Println(err)
 	}
 
 	beego.AddFuncMap("i18n", i18n.Tr)
 }
-
