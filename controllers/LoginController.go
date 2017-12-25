@@ -41,7 +41,7 @@ func (c *LoginController) SignIn() {
 		c.SetSession("userName", user.UserName)
 		c.SetSession("userId", user.UserId)
 
-		modules.ActlogCreate(modules.ACT_TYPE_LOGIN, map[string]string{"title": "登录", "content": "登录成功"})
+		modules.ActlogCreate(user.UserId, modules.ACT_TYPE_LOGIN, map[string]string{"title": "登录", "content": "登录成功"})
 
 		url := beego.URLFor("AdminController.Home")
 		mystruct["url"] = url

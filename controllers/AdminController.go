@@ -11,7 +11,7 @@ type AdminController struct {
 }
 
 // 常量 分页大小
-const CONST_PAGE_SIZE int = 2
+const CONST_PAGE_SIZE int = 10
 
 type PageStruct struct {
 	draw            int // page
